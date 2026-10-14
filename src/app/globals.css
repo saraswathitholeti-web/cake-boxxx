@@ -1,26 +1,135 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --brand-brown-dark: #2A170F;
+    --brand-brown: #4A2E18;
+    --brand-brown-light: #6A4426;
+    --brand-caramel: #C68B59;
+    --brand-pink: #E85A71;
+    --brand-pink-hover: #D0455C;
+    --brand-pink-soft: #FDE8EC;
+    --brand-cream: #FFFDF9;
+    --brand-cream-dark: #F5EBE1;
+    --brand-beige: #EADBC8;
+    
+    --bg-main: #FFFDF9;
+    --text-main: #2A170F;
+    --text-muted: #6B5D55;
+    --border-color: #EEDFD5;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom bakery utility classes */
+.bg-bakery-brown {
+  background-color: #4A2E18;
+}
+.bg-bakery-brown-dark {
+  background-color: #2A170F;
+}
+.bg-bakery-pink {
+  background-color: #E85A71;
+}
+.bg-bakery-pink:hover {
+  background-color: #D0455C;
+}
+.bg-bakery-cream {
+  background-color: #FFFDF9;
+}
+.bg-bakery-beige {
+  background-color: #F8F3ED;
+}
+.text-bakery-brown {
+  color: #4A2E18;
+}
+.text-bakery-pink {
+  color: #E85A71;
+}
+.text-bakery-caramel {
+  color: #C68B59;
+}
+.border-bakery-soft {
+  border-color: #EFE4DC;
+}
+
+/* Veg / Non-veg icons */
+.veg-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #16a34a;
+  border-radius: 3px;
+  background-color: #ffffff;
+}
+.veg-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #16a34a;
+}
+
+.non-veg-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #dc2626;
+  border-radius: 3px;
+  background-color: #ffffff;
+}
+.non-veg-badge-dot {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 7px solid #dc2626;
+}
+
+.eggless-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background-color: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+}
+
+/* Animations */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF5EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9C3B0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #BFA48E;
 }
